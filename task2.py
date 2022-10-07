@@ -6,7 +6,6 @@ import math
 import itertools
 import collections
 
-#/opt/spark/spark-3.1.2-bin-hadoop3.2/bin/spark-submit --executor-memory 4G --driver-memory 4G task2.py
 
 #input_file_path='../resource/asnlib/publicdata/ta_feng_all_months_merged.csv'
 
@@ -30,10 +29,6 @@ with open("customer_product.csv",'w') as file:
     writer.writerow(['DATE-CUSTOMER_ID', 'PRODUCT_ID'])
     for d in data_output:
         writer.writerow(d)
-
-#df = pyspark.sql.SparkSession.createDataFrame(data_deal_2, ['DATE-CUSTOMER_ID', 'PRODUCT_ID'])
-#df.write.csv("customer_product.csv", sep=',', header=True)
-
 
 
 #data_deal_2.saveAsTextFile("customer_product.csv")
@@ -109,17 +104,7 @@ def apriori_algorithm(original_chunk_baskets, lowscaled_support_threshold):
         size = size + 1
     return all_frequent_candidate
 
-#original_chunk_baskets = data_RDD.collect()
 
-#basic_itemset = collect_single_item(original_chunk_baskets)
-#filtered_basic_itemset = filter_to_frequent(basic_itemset,original_chunk_baskets,1)
-#size = 2
-#all_frequent_candidate = {}
-#all_frequent_candidate[size -1] = filtered_basic_itemset
-#generated_itemset = get_bigger_size(size, filtered_basic_itemset)
-#filtered_basic_itemset_2 = filter_to_frequent(generated_itemset,original_chunk_baskets,1)
-
-#output_local_frequent = apriori_algorithm(original_chunk_baskets,1)
 
 def son_phase_1(chunk):
     original_chunk_baskets = list(chunk)
